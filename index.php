@@ -1,63 +1,67 @@
-<div class="container-fluid">
+<div class="card">
 
-    <div class="card">
-        <div class="card-header d-flex justify-content-between">
-            <h4>Data Fakultas</h4>
+    <div class="card-header d-flex justify-content-between">
+        <h4>Data Program Studi</h4>
 
-            <a href="<?= site_url('fakultas/tambah') ?>"
-               class="btn btn-primary">
-                Tambah
-            </a>
-        </div>
+        <a href="<?= site_url('prodi/tambah') ?>"
+           class="btn btn-primary">
+            Tambah
+        </a>
+    </div>
 
-        <div class="card-body">
+    <div class="card-body">
 
-            <table id="datatable" class="table table-bordered">
+        <table id="datatable" class="table table-bordered">
 
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>ID</th>
-                        <th>Nama Fakultas</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>ID</th>
+                    <th>Nama Program Studi</th>
+                    <th>Strata</th>
+                    <th>Fakultas</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
 
-                <tbody>
+            <tbody>
 
-                <?php $no=1; foreach($fakultas as $f): ?>
+            <?php $no=1; foreach($prodi as $p): ?>
 
-                    <tr>
-                        <td><?= $no++ ?></td>
-                        <td><?= $f['fakultas_id'] ?></td>
-                        <td><?= $f['fakultas_name'] ?></td>
+                <tr>
 
-                        <td>
+                    <td><?= $no++ ?></td>
 
-                            <a href="<?= site_url('fakultas/ubah/'.$f['fakultas_id']) ?>"
-                               class="btn btn-warning btn-sm">
+                    <td><?= $p['prodi_id'] ?></td>
 
-                               Edit
+                    <td><?= $p['prodi_name'] ?></td>
 
-                            </a>
+                    <td><?= $p['prodi_strata'] ?></td>
 
-                            <a href="<?= site_url('fakultas/hapus/'.$f['fakultas_id']) ?>"
-                               class="btn btn-danger btn-sm btn-hapus">
+                    <td><?= $p['fakultas_name'] ?></td>
 
-                               Hapus
+                    <td>
 
-                            </a>
+                        <a href="<?= site_url('prodi/ubah/'.$p['prodi_id']) ?>"
+                           class="btn btn-warning btn-sm">
+                            Edit
+                        </a>
 
-                        </td>
-                    </tr>
+                        <a href="<?= site_url('prodi/hapus/'.$p['prodi_id']) ?>"
+                           class="btn btn-danger btn-sm btn-hapus">
+                            Hapus
+                        </a>
 
-                <?php endforeach; ?>
+                    </td>
 
-                </tbody>
+                </tr>
 
-            </table>
+            <?php endforeach; ?>
 
-        </div>
+            </tbody>
+
+        </table>
+
     </div>
 
 </div>
